@@ -3,7 +3,7 @@
 @use "../abstracts/mixins" as m;
 
 .sidebar {
-  @include m.flex(column, stretch, space-between);
+  @include m.flex(column, stretch,flex-start);
   width: v.$sidebar-width;
   flex: 0 0 v.$sidebar-width;
   height: 100dvh;
@@ -11,15 +11,22 @@
   background: v.$color-bg;
   color: v.$color-white;
   border-right: 1px solid v.$color-border;
- 
+  overflow-y: auto;
+  overflow-x: hidden;
+scrollbar-width: thin;
+  scrollbar-color:
+    v.$color-surface-hover
+    transparent;
+
   transition:
     width fn.transition(normal),
     transform fn.transition(normal);
 
   &__top {
-    min-height: 0;
-    flex: 1;
-    overflow: hidden;
+   flex: 0 0 auto;
+  min-height: auto;
+  overflow: visible;
+ 
   }
 
   &__header {
@@ -64,18 +71,15 @@
 
 }
   &__history {
-    height: calc(100% - 340px);
+    // height: calc(100% - 340px);
     margin-top: fn.spacing(xs);
     padding-inline: fn.spacing(xs);
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color:
-     v.$color-surface-hover
-    transparent;
-  }
+      overflow: visible;
+}
 
   &__conversations {
     @include m.flex(column, stretch, flex-start, 0);
+    
   }
 
   &__section {

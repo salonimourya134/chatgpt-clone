@@ -49,6 +49,27 @@ function createConversation(conversation) {
   return button;
 }
 
+// function renderConversationGroup(group, conversationsList) {
+//   const container = document.querySelector(
+//     `[data-group="${group}"]`
+//   );
+
+//   if (!container) {
+//     return;
+//   }
+
+//   container.replaceChildren();
+
+//   conversationsList.forEach((conversation) => {
+//     const button = createConversation(conversation);
+
+//     button.addEventListener("click", () => {
+//       setActiveConversation(conversation.id);
+//     });
+
+//     container.append(button);
+//   });
+// }
 function renderConversationGroup(group, conversationsList) {
   const container = document.querySelector(
     `[data-group="${group}"]`
@@ -62,6 +83,11 @@ function renderConversationGroup(group, conversationsList) {
 
   conversationsList.forEach((conversation) => {
     const button = createConversation(conversation);
+
+    button.classList.toggle(
+      "conversation--active",
+      conversation.id === state.activeConversationId
+    );
 
     button.addEventListener("click", () => {
       setActiveConversation(conversation.id);
