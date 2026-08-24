@@ -1,0 +1,39 @@
+@use "variables" as v;
+@use "functions" as fn;
+
+@mixin flex($direction: row, $align: center, $justify: flex-start, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+@mixin flex-center($direction: row, $gap: 0) {
+  @include flex($direction, center, center, $gap);
+}
+
+@mixin flex-between($direction: row, $align: center, $gap: 0) {
+  @include flex($direction, $align, space-between, $gap);
+}
+
+@mixin button-reset {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+@mixin focus-visible {
+  &:focus-visible {
+    outline: 2px solid v.$color-white;
+    outline-offset: 2px;
+  }
+}
+
+@mixin respond-to($name) {
+  @media (max-width: fn.breakpoint($name)) {
+    @content;
+  }
+}

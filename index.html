@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatGPT Clone</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body class="page__body">
+    <div class="app">
+      <aside class="sidebar" aria-label="ChatGPT sidebar">
+        <div class="sidebar__top">
+          <div class="sidebar__header">
+            <button
+              class="button button--icon sidebar__brand"
+              type="button"
+              aria-label="Open sidebar"
+            >
+              <span class="icon icon--logo" aria-hidden="true">
+                <img src="./assets/icons/brand-openai.svg" alt="ChatGPT" />
+              </span>
+            </button>
+
+            <div class="sidebar__header-actions">
+              <button
+                class="button button--icon sidebar__search"
+                type="button"
+                aria-label="Search"
+              >
+                <span class="icon icon--search" aria-hidden="true"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-search-icon lucide-search"
+                  >
+                    <path d="m21 21-4.34-4.34" />
+                    <circle cx="11" cy="11" r="8" /></svg
+                ></span>
+              </button>
+
+              <button
+                class="button button--icon sidebar__collapse"
+                type="button"
+                aria-label="Collapse sidebar"
+              >
+                <span class="icon icon--collapse" aria-hidden="true"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-panel-left-icon lucide-panel-left"
+                  >
+                    <rect width="18" height="18" x="3" y="3" rx="2" />
+                    <path d="M9 3v18" /></svg
+                ></span>
+              </button>
+            </div>
+          </div>
+
+          <nav class="sidebar__navigation" aria-label="Main navigation">
+            <button
+              class="button navigation-item navigation-item--new-chat"
+              type="button"
+            >
+              <span
+                class="navigation-item__icon icon icon--edit"
+                aria-hidden="true"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-square-pen-icon lucide-square-pen"
+                >
+                  <path
+                    d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                  />
+                  <path
+                    d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"
+                  />
+                </svg>
+              </span>
+
+              <span class="navigation-item__text"> New chat </span>
+            </button>
+
+            <button
+              class="button navigation-item navigation-item--search"
+              type="button"
+            >
+              <span
+                class="navigation-item__icon icon icon--search"
+                aria-hidden="true"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-search-icon lucide-search"
+                >
+                  <path d="m21 21-4.34-4.34" />
+                  <circle cx="11" cy="11" r="8" />
+                </svg>
+              </span>
+
+              <span class="navigation-item__text"> Search </span>
+            </button>
+
+            <button
+              class="button navigation-item navigation-item--history"
+              type="button"
+            >
+              <span
+                class="navigation-item__icon icon icon--history"
+                aria-hidden="true"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-message-circle-icon lucide-message-circle"
+                >
+                  <path
+                    d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
+                  />
+                </svg>
+              </span>
+
+              <span class="navigation-item__text"> History </span>
+            </button>
+
+            <button class="button navigation-item" type="button">
+              <span
+                class="navigation-item__icon icon icon--image"
+                aria-hidden="true"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-images-icon lucide-images"
+                >
+                  <path d="m22 11-1.296-1.296a2.4 2.4 0 0 0-3.408 0L11 16" />
+                  <path
+                    d="M4 8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2"
+                  />
+                  <circle cx="13" cy="7" r="1" fill="currentColor" />
+                  <rect x="8" y="2" width="14" height="14" rx="2" />
+                </svg>
+              </span>
+
+              <span class="navigation-item__text"> Images </span>
+            </button>
+
+            <button class="button navigation-item" type="button">
+              <span
+                class="navigation-item__icon icon icon--library"
+                aria-hidden="true"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-library-big-icon lucide-library-big"
+                >
+                  <rect width="8" height="18" x="3" y="3" rx="1" />
+                  <path d="M7 3v18" />
+                  <path
+                    d="M20.4 18.9c.2.5-.1 1.1-.6 1.3l-1.9.7c-.5.2-1.1-.1-1.3-.6L11.1 5.1c-.2-.5.1-1.1.6-1.3l1.9-.7c.5-.2 1.1.1 1.3.6Z"
+                  />
+                </svg>
+              </span>
+
+              <span class="navigation-item__text"> Library </span>
+            </button>
+
+            <button class="button navigation-item" type="button">
+              <span
+                class="navigation-item__icon icon icon--plugins"
+                aria-hidden="true"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-house-plug-icon lucide-house-plug"
+                >
+                  <path d="M10 12V8.964" />
+                  <path d="M14 12V8.964" />
+                  <path
+                    d="M15 12a1 1 0 0 1 1 1v2a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2a1 1 0 0 1 1-1z"
+                  />
+                  <path
+                    d="M8.5 21H5a2 2 0 0 1-2-2v-9a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2v-2"
+                  />
+                </svg>
+              </span>
+
+              <span class="navigation-item__text"> Plugins </span>
+            </button>
+
+            <button class="button navigation-item" type="button">
+              <span
+                class="navigation-item__icon icon icon--codex"
+                aria-hidden="true"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-code-icon lucide-message-circle-code"><path d="m10 9-3 3 3 3"/><path d="m14 15 3-3-3-3"/><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>
+              </span>
+
+              <span class="navigation-item__text"> Codex </span>
+            </button>
+
+            <button class="button navigation-item" type="button">
+              <span
+                class="navigation-item__icon icon icon--more"
+                aria-hidden="true"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-ellipsis-icon lucide-ellipsis"
+                >
+                  <circle cx="12" cy="12" r="1" />
+                  <circle cx="19" cy="12" r="1" />
+                  <circle cx="5" cy="12" r="1" />
+                </svg>
+              </span>
+
+              <span class="navigation-item__text"> More </span>
+            </button>
+          </nav>
+          <section class="sidebar__history" aria-label="Conversation history">
+            <div class="sidebar__section">
+              <p class="sidebar__label">Today</p>
+
+              <div class="sidebar__conversations" data-group="today"></div>
+            </div>
+
+            <div class="sidebar__section">
+              <p class="sidebar__label">Yesterday</p>
+
+              <div class="sidebar__conversations" data-group="yesterday"></div>
+            </div>
+
+            <div class="sidebar__section">
+              <p class="sidebar__label">Previous 7 days</p>
+
+              <div class="sidebar__conversations" data-group="previous"></div>
+            </div>
+
+            <div class="sidebar__section">
+              <p class="sidebar__label">Older</p>
+
+              <div class="sidebar__conversations" data-group="older"></div>
+            </div>
+          </section>
+        </div>
+
+        <footer class="sidebar__footer">
+          <button class="button profile" type="button">
+            <span class="profile__avatar" aria-hidden="true"> SM </span>
+
+            <span class="profile__details">
+              <span class="profile__name"> saloni mourya </span>
+
+              <span class="profile__plan"> Free </span>
+            </span>
+          </button>
+
+          <button class="button sidebar__offer" type="button">
+            <span class="icon icon--gift" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-gift-icon lucide-gift"
+              >
+                <path d="M12 7v14" />
+                <path d="M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8" />
+                <path
+                  d="M7.5 7a1 1 0 0 1 0-5A4.8 8 0 0 1 12 7a4.8 8 0 0 1 4.5-5 1 1 0 0 1 0 5"
+                />
+                <rect x="3" y="7" width="18" height="4" rx="1" />
+              </svg>
+            </span>
+
+            <span> Claim offer </span>
+          </button>
+        </footer>
+      </aside>
+
+      <div class="sidebar-overlay" aria-hidden="true"></div>
+      <main class="main">
+        <header class="header">
+          <div class="header__left">
+            <button
+              class="button button--icon header__menu"
+              type="button"
+              aria-label="Open sidebar"
+            >
+              <span class="icon icon--menu" aria-hidden="true">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-text-align-start-icon lucide-text-align-start"
+                >
+                  <path d="M21 5H3" />
+                  <path d="M15 12H3" />
+                  <path d="M17 19H3" /></svg
+              ></span>
+            </button>
+
+            <button class="button header__model" type="button">
+              <span> ChatGPT </span>
+
+              <span class="icon icon--chevron" aria-hidden="true">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-chevron-down-icon lucide-chevron-down"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </span>
+            </button>
+          </div>
+
+          <div class="header__right">
+            <button class="button header__offer" type="button">
+              <span class="icon icon--gift" aria-hidden="true">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-gift-icon lucide-gift"
+                >
+                  <path d="M12 7v14" />
+                  <path d="M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8" />
+                  <path
+                    d="M7.5 7a1 1 0 0 1 0-5A4.8 8 0 0 1 12 7a4.8 8 0 0 1 4.5-5 1 1 0 0 1 0 5"
+                  />
+                  <rect x="3" y="7" width="18" height="4" rx="1" />
+                </svg>
+              </span>
+
+              <span> Free offer </span>
+            </button>
+
+            <button
+              class="button button--icon header__share"
+              type="button"
+              aria-label="Account"
+            >
+              <span class="icon icon--share" aria-hidden="true">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-share-icon lucide-share"
+                >
+                  <path d="M12 2v13" />
+                  <path d="m16 6-4-4-4 4" />
+                  <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+                </svg>
+              </span>
+            </button>
+            <button
+              class="button button--icon header__more"
+              type="button"
+              aria-label="Account"
+            >
+              <span class="icon icon--more" aria-hidden="true">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-ellipsis-icon lucide-ellipsis"
+                >
+                  <circle cx="12" cy="12" r="1" />
+                  <circle cx="19" cy="12" r="1" />
+                  <circle cx="5" cy="12" r="1" />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </header>
+
+        <section class="chat" aria-label="Chat">
+          <div class="chat__content">
+            <div class="chat__welcome">
+              <h1 class="chat__title">What’s on your mind today?</h1>
+            </div>
+
+            <div
+              class="chat__messages"
+              aria-live="polite"
+              aria-label="Conversation messages"
+            ></div>
+
+            <div class="chat__composer-area">
+              <form class="composer" autocomplete="off">
+                <div class="composer__left">
+                  <button
+                    class="button button--icon composer__action"
+                    type="button"
+                    aria-label="Add"
+                  >
+                    <span class="icon icon--plus" aria-hidden="true">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-plus-icon lucide-plus"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="M12 5v14" />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+
+                <textarea
+                  class="composer__textarea"
+                  rows="1"
+                  placeholder="Ask anything"
+                  aria-label="Message"
+                ></textarea>
+
+                <div class="composer__right">
+                  <button class="button composer__think" type="button">
+                    <span class="icon icon--think" aria-hidden="true">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-brain-icon lucide-brain"
+                      >
+                        <path d="M12 18V5" />
+                        <path
+                          d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"
+                        />
+                        <path
+                          d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"
+                        />
+                        <path d="M17.997 5.125a4 4 0 0 1 2.526 5.77" />
+                        <path d="M18 18a4 4 0 0 0 2-7.464" />
+                        <path
+                          d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"
+                        />
+                        <path d="M6 18a4 4 0 0 1-2-7.464" />
+                        <path d="M6.003 5.125a4 4 0 0 0-2.526 5.77" />
+                      </svg>
+                    </span>
+
+                    <span> Think </span>
+                  </button>
+
+                  <button
+                    class="button button--icon composer__microphone"
+                    type="button"
+                    aria-label="Voice input"
+                  >
+                    <span class="icon icon--mic" aria-hidden="true">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-mic-icon lucide-mic"
+                      >
+                        <path d="M12 19v3" />
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                        <rect x="9" y="2" width="6" height="13" rx="3" /></svg
+                    ></span>
+                  </button>
+
+                  <button
+                    class="button composer__send"
+                    type="submit"
+                    aria-label="Voice mode"
+                  >
+                    <span class="icon icon--voice" aria-hidden="true">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-move-up-icon lucide-move-up"
+                      >
+                        <path d="M8 6L12 2L16 6" />
+                        <path d="M12 2V22" />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </form>
+
+              <nav class="shortcuts" aria-label="Chat shortcuts">
+                <button class="button shortcut" type="button">
+                  <span class="icon shortcut__icon" aria-hidden="true">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-image-icon lucide-image"
+                    >
+                      <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                      <circle cx="9" cy="9" r="2" />
+                      <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                    </svg>
+                  </span>
+
+                  <span class="shortcut__text"> Create an image </span>
+                </button>
+
+                <button class="button shortcut" type="button">
+                  <span class="icon shortcut__icon" aria-hidden="true">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-pencil-icon lucide-pencil"
+                    >
+                      <path
+                        d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                      />
+                      <path d="m15 5 4 4" />
+                    </svg>
+                  </span>
+
+                  <span class="shortcut__text"> Write or edit </span>
+                </button>
+
+                <button class="button shortcut" type="button">
+                  <span class="icon shortcut__icon" aria-hidden="true">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-globe-icon lucide-globe"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <path
+                        d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"
+                      />
+                      <path d="M2 12h20" />
+                    </svg>
+                  </span>
+
+                  <span class="shortcut__text"> Search the web </span>
+                </button>
+              </nav>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

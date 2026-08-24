@@ -1,0 +1,17 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+.app {
+  display: flex;
+  width: 100%;
+  height: 100dvh;
+  background: v.$color-bg;
+}
+
+.main {
+  @include m.flex(column, stretch, flex-start);
+  min-width: 0;
+  flex: 1;
+  height: 100dvh;
+  overflow: hidden;
+}

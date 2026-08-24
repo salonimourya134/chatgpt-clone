@@ -1,0 +1,33 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/functions" as fn;
+
+.page__body {
+  background: v.$color-bg;
+  color: v.$color-text;
+  font-family: v.$font-family;
+  font-size: fn.font-size(md);
+  line-height: fn.line-height(normal);
+  overflow: hidden;
+}
+
+.button,
+.composer__textarea {
+  font: inherit;
+}
+
+.composer__textarea {
+  resize: none;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  color: currentColor;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1;
+}

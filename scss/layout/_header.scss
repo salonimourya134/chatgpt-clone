@@ -1,0 +1,62 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/functions" as fn;
+@use "../abstracts/mixins" as m;
+
+.header {
+  @include m.flex-between;
+  height: v.$header-height;
+  flex-shrink: 0;
+  padding: 0 fn.spacing(lg);
+  &__left,
+  &__right {
+    @include m.flex(row, center, flex-start, fn.spacing(xs));
+  }
+
+  &__menu {
+    display: none;
+  }
+
+  &__model {
+    @include m.flex(row, center, flex-start, fn.spacing(xs));
+    min-height: 40px;
+    padding: 0 fn.spacing(sm);
+    border-radius: fn.radius(md);
+    color: v.$color-text;
+    font-size: fn.font-size(lg);
+    font-weight: fn.font-weight(semibold);
+
+    &:hover {
+      background: v.$color-surface;
+    }
+  }
+
+  &__offer {
+    @include m.flex(row, center, center, fn.spacing(xs));
+    min-height: 36px;
+    padding: 0 fn.spacing(sm);
+    color: #31a8ff;
+    font-size: fn.font-size(sm);
+    border-radius: fn.radius(md);
+
+    &:hover {
+      background: v.$color-surface;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .header__menu {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    height: v.$header-mobile-height;
+    padding-inline: fn.spacing(sm);
+  }
+
+  .header__offer span:not(.icon) {
+    display: none;
+  }
+}

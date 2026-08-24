@@ -1,0 +1,199 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/functions" as fn;
+@use "../abstracts/mixins";
+
+.chat__composer-area {
+  @include mixins.flex(column, center, flex-start);
+  width: 100%;
+
+}
+
+.composer {
+  display: flex;
+  align-items: center;
+  width: min(100%, v.$composer-max-width);
+  height: 50px;
+  padding: fn.spacing(2xl);
+  gap: fn.spacing(xs);
+  border: 1px solid v.$color-border;
+  border-radius: fn.radius(pill);
+  background: v.$color-surface;
+  box-shadow: fn.shadow(sm);
+  transition:
+  border-color fn.transition(fast),
+  box-shadow fn.transition(fast);
+
+  &:hover {
+    border-color: v.$color-border-light;
+  }
+
+  &:focus-within {
+    border-color: v.$color-border-light;
+    box-shadow: fn.shadow(md);
+  }
+
+  &__left {
+    @include mixins.flex-center;
+
+    flex-shrink: 0;
+  }
+
+  &__action {
+    @include mixins.button-reset;
+    @include mixins.flex-center;
+
+    width: 32px;
+    height: 32px;
+    border-radius: fn.radius(pill);
+    color: v.$color-text-secondary;
+    font-size: fn.font-size(xl);
+
+    &:hover {
+      background: v.$color-surface-hover;
+      color: v.$color-text;
+    }
+
+    &:active {
+      background: v.$color-surface-active;
+    }
+
+    @include mixins.focus-visible;
+  }
+
+  &__textarea {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    height: 30px;
+    padding: 0;
+    resize: none;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: v.$color-text;
+    font-family: v.$font-family;
+    font-size: fn.font-size(xl);
+    line-height: fn.line-height(normal);
+
+    &::placeholder {
+      color: v.$color-text-muted;
+    }
+  }
+
+  &__right {
+    @include mixins.flex(row, center, flex-end, fn.spacing(xs));
+
+    flex-shrink: 0;
+  }
+
+  &__think {
+    @include mixins.button-reset;
+    @include mixins.flex(row, center, center, fn.spacing(xs));
+
+    min-height: 36px;
+    padding-inline: fn.spacing(sm);
+    border-radius: fn.radius(md);
+    color: v.$color-text-secondary;
+    font-family: v.$font-family;
+    font-size: fn.font-size(sm);
+    font-weight: fn.font-weight(medium);
+
+    &:hover {
+      background: v.$color-surface-hover;
+      color: v.$color-text;
+    }
+
+    &:active {
+      background: v.$color-surface-active;
+    }
+
+    @include mixins.focus-visible;
+  }
+
+  &__microphone {
+    @include mixins.button-reset;
+    @include mixins.flex-center;
+
+    width: 32px;
+    height: 32px;
+    border-radius: fn.radius(pill);
+    color: v.$color-text-secondary;
+
+    &:hover {
+      background: v.$color-surface-hover;
+      color: v.$color-text;
+    }
+
+    @include mixins.focus-visible;
+  }
+
+  &__send {
+    @include mixins.button-reset;
+    @include mixins.flex-center;
+
+    width: 36px;
+    height: 36px;
+    border-radius: fn.radius(pill);
+    background: v.$color-blue;
+    color: v.$color-white;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+
+    &:active {
+      transform: scale(0.96);
+    }
+
+    @include mixins.focus-visible;
+  }
+
+  &__icon {
+    @include mixins.flex-center;
+  }
+
+  @include mixins.respond-to(mobile) {
+    width: 100%;
+
+    &__think {
+      display: none;
+    }
+  }
+}
+
+.shortcuts {
+  @include mixins.flex(column, flex-start, flex-start, fn.spacing(xs));
+
+  width: min(100%, v.$composer-max-width);
+  margin-top: fn.spacing(sm);
+}
+
+.shortcut {
+  @include mixins.button-reset;
+  @include mixins.flex(row, center, flex-start, fn.spacing(sm));
+
+  min-height: 32px;
+  padding: fn.spacing(md) fn.spacing(sm);
+  border-radius: fn.radius(md);
+  color: v.$color-text;
+  font-family: v.$font-family;
+  font-size: fn.font-size(md);
+  
+
+  &:hover {
+    background: v.$color-surface-hover;
+  }
+
+  &__icon {
+    @include mixins.flex-center;
+
+    width: 20px;
+    color: v.$color-text-secondary;
+  }
+
+  &__text {
+    white-space: nowrap;
+  }
+
+  @include mixins.focus-visible;
+}

@@ -1,0 +1,9 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+.button {
+  @include m.button-reset;
+  @include m.focus-visible;
+
+  color: inherit;
+}

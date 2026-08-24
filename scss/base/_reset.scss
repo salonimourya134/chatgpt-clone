@@ -1,0 +1,11 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.page__body {
+  min-width: 320px;
+  min-height: 100dvh;
+  margin: 0;
+}
